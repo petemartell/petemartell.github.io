@@ -25,11 +25,14 @@ const tjekSvar = () => {
   }
 }
 
-input.addEventListener("keydown", function onEvent(event) {
+input.addEventListener("keydown", (event) => {
   if (event.key === "Enter") tjekSvar();
   if(!/\p{L}/u.test(event.key)) event.preventDefault();
 });
 gaetknap.addEventListener("click", tjekSvar);
+input.addEventListener("focus", (event) => {
+  input.focus({preventScroll: true});
+});
 
 const tillykke = () => {
   document.body.innerHTML += `<div id="besked"><h1>Tillykke, du vandt!</h1><h3>Du er velkommen til at spille igen<br> med et nyt ord:</h3><button onclick="window.location.reload();">NYT SPIL</button></div>`;
