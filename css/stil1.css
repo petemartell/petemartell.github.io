@@ -1,0 +1,92 @@
+:root {
+    --almost-black: rgb(19,19,19);
+    --dark-gray: rgb(59,59,59);
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-color: var(--almost-black);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    border-width: 0px 0px 2px 0px;
+    border-style: solid;
+    border-color: var(--dark-gray);
+    width: 100%;
+    padding: 5px 0;
+}
+
+main {
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 4px;
+    margin: 20px auto;
+}
+
+div {
+    height: 60px;
+    border: 2px solid var(--dark-gray);
+    background-color: var(--almost-black);
+    font-size: 55px;
+    text-align: center;
+}
+
+div:not(#input) {
+    width: 60px;
+}
+
+input {
+    height: 60px;
+    padding: 0;
+    grid-column: span 4;
+    grid-row: 7;
+    background-color: white;
+    border: 2px solid var(--dark-gray);
+    color: var(--almost-black);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 50px;
+}
+
+#gaet {
+    background-color: var(--dark-gray);
+    cursor: pointer;
+}
+
+*:focus {
+    outline: none;
+}
+
+input::placeholder {
+    font-size: 45px;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+#besked {
+    position: absolute;
+    min-width: calc(100% - 30px);
+    min-height: calc(100% - 30px);
+    top: 15px;
+    left: 15px;
+    background-color: white;
+    color: var(--almost-black);
+    font-size: 40px;
+    text-align: center;
+}
+
+#besked button {
+    font-size: 40px;
+    width: 350px;
+    height: 50px;
+}
