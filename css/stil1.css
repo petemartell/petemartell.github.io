@@ -1,6 +1,10 @@
 :root {
     --almost-black: rgb(19,19,19);
     --dark-gray: rgb(59,59,59);
+    --cube-size: min(18vw, 150px, 10vh);
+    --biggest-letters: calc(var(--cube-size) - 5px);
+    --bigger-letters: calc(var(--cube-size) - 10px);
+    --big-letters: calc(var(--cube-size) - min(3vh, 50px));
 }
 
 body {
@@ -15,7 +19,7 @@ body {
 
 header {
     text-align: center;
-    border-width: 0px 0px 2px 0px;
+    border-width: 0 0 max(0.3vh, 5px) 0;
     border-style: solid;
     border-color: var(--dark-gray);
     width: 100%;
@@ -27,24 +31,24 @@ main {
     height: fit-content;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 4px;
+    gap: 10px;
     margin: 20px auto;
 }
 
 div {
-    height: 60px;
+    height: var(--cube-size);
     border: 2px solid var(--dark-gray);
     background-color: var(--almost-black);
-    font-size: 55px;
+    font-size: var(--bigger-letters);
     text-align: center;
 }
 
 div:not(#input) {
-    width: 60px;
+    min-width: var(--cube-size);
 }
 
 input {
-    height: 60px;
+    min-height: var(--cube-size);
     padding: 0;
     grid-column: span 4;
     grid-row: 7;
@@ -53,7 +57,7 @@ input {
     color: var(--almost-black);
     text-align: center;
     text-transform: uppercase;
-    font-size: 50px;
+    font-size: var(--big-letters);
 }
 
 #gaet {
@@ -66,7 +70,7 @@ input {
 }
 
 input::placeholder {
-    font-size: 45px;
+    font-size: var(--big-letters);
 }
 
 input:focus::placeholder {
@@ -81,12 +85,12 @@ input:focus::placeholder {
     left: 15px;
     background-color: white;
     color: var(--almost-black);
-    font-size: 40px;
+    font-size: var(--big-letters);
     text-align: center;
 }
 
 #besked button {
-    font-size: 40px;
+    font-size: var(--big-letters);
     width: 350px;
     height: 50px;
 }
