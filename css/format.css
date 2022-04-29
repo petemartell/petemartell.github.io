@@ -1,0 +1,140 @@
+:root {
+  --almost-black: rgb(19,19,19);
+  --dark-gray: rgb(59,59,59);
+  --light-gray: rgb(134, 134, 134);
+  --forest-green: rgb(106, 170, 100);
+  --sickly-yellow: rgb(201, 180, 88);
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+body {
+  background-color: var(--almost-black);
+  display: flex;
+  flex-flow: column;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+header {
+  flex: 0 1 auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid var(--dark-gray);
+  user-select: none;
+}
+main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column;
+  max-width: min(900px, 50vh);
+  width: 100%;
+  margin: 0 auto; 
+}
+.pladeholder {
+  flex: 1 1 auto;
+  padding: 0.7vh;
+}
+.plade {
+  aspect-ratio: 5 / 6;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 0.7vh;
+}
+.plade div {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 0;
+  border: 2px solid var(--dark-gray);
+  user-select: none;
+}
+.tastatur {
+  flex: 0 1 33%;
+  min-height: 200px;
+  max-height: min(300px, 55vw);
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-gap: 0.7vh;
+  margin: 0 auto;
+}
+.tastatur > div {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+.tastatur > div, .knap {
+  background-color: var(--light-gray);
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: bold;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+}
+.tastatur > div:not(.bred) {
+  text-transform: uppercase;
+}
+.bred {
+  grid-column-start: span 2;
+}
+h1 {
+  margin: 0;
+  white-space: nowrap;
+}
+.knap {
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  border: none;
+}
+.knap:focus {
+  outline: none;
+}
+.skygge {
+  position: fixed;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 100;
+}
+.besked {
+  position: absolute;
+  width: min(250px, 100vw - 60px);
+  padding: 20px;
+  top: 35%;
+  left: 50%;
+  right: 20px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  color: var(--almost-black);
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  opacity: 1;
+  transition: opacity 350ms cubic-bezier(.13,.82,.57,.92);
+  z-index: 200;
+  user-select: none;
+}
+.kryds {
+  position: absolute; 
+  top: 5px; 
+  right: 12px; 
+  font-weight: 400; 
+  font-size: 2em;
+  z-index: 300;
+  cursor: pointer;
+}

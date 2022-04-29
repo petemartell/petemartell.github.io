@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="da">
 <head>
-    <meta charset="UTF-8">
-    <title>Gæt et ord på 5 bogstaver!</title>
-    <link rel="stylesheet" href="css/stil1.css">
-    <script src="js/laengde5.js" defer></script>
-    <script src="js/tjekord.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Gæt ordet!</title>
+  <link rel="stylesheet" href="css/format.css">
+  <script src="js/fittext.js" defer></script>
+  <script src="js/laengde5.js" defer></script>
+  <script src="js/tjekord.js" defer></script>
 </head>
 <body>
-    <header><h1>Gæt et ord på 5 bogstaver!</h1></header>
-    <main>
+  <header><h1>Gæt ordet!</h1></header>
+  <main>
+    <div class="pladeholder">
+      <div class="plade">
         <div></div>
         <div></div>
         <div></div>
@@ -45,9 +49,48 @@
         <div></div>
         <div></div>
         <div></div>
+      </div>
+    </div>
+    <!--
+    Q W E R T Y U I O P Å
+    A S D F G H J K L Æ Ø
+    ENTER Z X C V B N M <X]
+    -->
+    <div class="tastatur">    
+      <div>q</div>
+      <div>w</div>
+      <div>e</div>
+      <div>r</div>
+      <div>t</div>
+      <div>y</div>
+      <div>u</div>
+      <div>i</div>
+      <div>o</div>
+      <div>p</div>
+      <div>å</div>
 
-        <input id="input" type="text" maxlength="5" size="5" autocomplete="off" placeholder="Skriv her">
-        <div id="gaet">&#9166;</div>        
-    </main>
+      <div>a</div>
+      <div>s</div>
+      <div>d</div>
+      <div>f</div>
+      <div>g</div>
+      <div>h</div>
+      <div>j</div>
+      <div>k</div>
+      <div>l</div>
+      <div>æ</div>
+      <div>ø</div>
+
+      <div class="bred">Retur</div>
+      <div>z</div>
+      <div>x</div>
+      <div>c</div>
+      <div>v</div>
+      <div>b</div>
+      <div>n</div>
+      <div>m</div>
+      <div class="bred">⌫</div>
+    </div>
+  </main>
 </body>
 </html>
