@@ -55,8 +55,11 @@ const startIndtastning = () => {
     gyldig.push(tast.innerText.toLowerCase());
     tastelyttere.set(tast, (event) => {
       if (svar.length < 5) {
+        let bogstav = document.createElement('div');
+        bogstav.className = 'bogstav';
+        bogstav.innerHTML = tast.innerText;
         svar += tast.innerText.toLowerCase();
-        plade[svar.length - 1 + 5*forsoeg].innerHTML = tast.innerText;
+        plade[svar.length - 1 + 5*forsoeg].appendChild(bogstav);
       }
     });
     tast.addEventListener('click', tastelyttere.get(tast));
@@ -74,7 +77,10 @@ const lytFysiskTastatur = (event) => {
   let tast = event.key.toLowerCase();
   if (gyldig.includes(tast) && svar.length < 5) {
     svar += tast;
-    plade[svar.length - 1 + 5*forsoeg].innerHTML = tast;
+    let bogstav = document.createElement('div');
+    bogstav.className = 'bogstav';
+    bogstav.innerHTML = tast;
+    plade[svar.length - 1 + 5*forsoeg].appendChild(bogstav);
   } else if (tast === 'backspace' && svar.length > 0) {
     svar = svar.slice(0, -1);
     plade[svar.length + 5*forsoeg].innerHTML = '';
@@ -124,4 +130,5 @@ const lukBesked = (besked) => {
   window.setTimeout(() => document.body.removeChild(besked), 350);
 }
 
+alert(korrekt);
 startIndtastning();
