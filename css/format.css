@@ -21,27 +21,21 @@ body {
 }
 main {
   width: 100%;
-  max-width: min(900px, 55vh);
   height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-flow: column;
-}
-.pladeholder {
-  padding: 0.5ch;
-  flex: 1 1 auto;
-  background-color: blanchedalmond;
 }
 .plade {
-  max-height: 100%;
+  max-width: 100%;
+  max-height: calc(100% - 15rem);
+  margin: 0 auto;
+  padding: 0.5em;
+  box-sizing: border-box;
   aspect-ratio: 5 / 6;
   display: grid;
-  grid-template: repeat(6, 1fr) / repeat(5, 1fr);
-  gap: 0.5ch;
-  background-color: blueviolet;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4em;
 }
 .plade > div {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,8 +45,13 @@ main {
   background-color: maroon;
 }
 .tastatur {
+  width: calc(100% - 1ch);
+  max-width: 900px;
   padding: 0 0.5ch;
-  flex: 0 1 content;
+  position: fixed;
+  bottom:0;
+  left: 50%; 
+  transform: translateX(-50%);
   display: grid;
   grid-template-columns: repeat(11, 1fr);
   gap: 0.5ch;
