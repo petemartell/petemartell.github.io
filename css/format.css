@@ -57,7 +57,7 @@ main {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(11, 1fr);
-  gap: 4px;
+  gap: 2px;
   touch-action: manipulation;
 }
 .tastatur > button {
@@ -74,9 +74,10 @@ main {
   user-select: none;
   cursor: pointer;
   font-size: min(1em, 4vw);
-  line-height: 3rem;
+  height: 3rem;
   color: white;
   border: 0;
+  margin: 0;
   padding: 0;
 }
 .bred {
