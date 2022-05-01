@@ -25,7 +25,7 @@ main {
 }
 .plade {
   max-width: min(100%, 700px);
-  max-height: calc(100% - 15rem);
+  max-height: calc(100% - 10rem);
   margin: 0 auto;
   padding: 0.5em;
   box-sizing: border-box;
@@ -57,7 +57,7 @@ main {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(11, 1fr);
-  gap: 0.2em;
+  gap: 4px;
   touch-action: manipulation;
 }
 .tastatur > button {
@@ -73,8 +73,8 @@ main {
   text-overflow: clip;
   user-select: none;
   cursor: pointer;
-  font-size: min(1em, 3vw);
-  line-height: 3em;
+  font-size: min(1em, 4vw);
+  line-height: 3rem;
   color: white;
   border: 0;
   padding: 0;
