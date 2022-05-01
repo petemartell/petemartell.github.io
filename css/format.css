@@ -48,6 +48,11 @@ main {
   -webkit-user-select: none;
   user-select: none;
 }
+@media screen and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+  .plade > div {
+    font-size: min(1em, 6.5vh);
+  }
+}
 .tastatur {
   width: 100%;
   max-width: 900px;

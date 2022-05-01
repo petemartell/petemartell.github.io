@@ -1,7 +1,6 @@
 const ordbog = ord.split(',');
 const vaelgOrd = () => ordbog[Math.floor(Math.random() * ordbog.length)];
 const korrekt = vaelgOrd();
-
 const plade = document.querySelectorAll('.plade > div');
 const taster = document.querySelectorAll('.tastatur > button:not(.bred)');
 const [retur, slet] = document.querySelectorAll('.bred');
@@ -11,8 +10,6 @@ let gyldig = [];
 let forsoeg = 0;
 let svar = '';
 let tastelyttere = new Map();
-
-alert(korrekt);
 
 const korrektBogstav = (bogstav) => {
   taster[bogstaver.indexOf(bogstav)].style.backgroundColor = 'var(--green-1)';
@@ -53,7 +50,7 @@ const tjekSvar = () => {
     forsoeg++;
     svar = '';
   } else {
-    sendBesked("<h3>Dit gæt er ikke på listen<br>over gyldige ord.</h3>", true);    
+    sendBesked('<h3>Dit gæt er ikke på listen<br>over gyldige ord.</h3>', true);    
   }
 }
 
