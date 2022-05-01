@@ -1,12 +1,23 @@
 const ordbog = ord.split(',');
 const vaelgOrd = () => ordbog[Math.floor(Math.random() * ordbog.length)];
 const korrekt = vaelgOrd();
+
+const plade = document.querySelectorAll('.plade > div');
+const taster = document.querySelectorAll('.tastatur > button:not(.bred)');
+const [retur, slet] = document.querySelectorAll('.bred');
 const bogstaver = [...taster.values()].reduce((acc, tast) => [...acc, tast.innerText.toLowerCase()], []);
 
 let gyldig = [];
 let forsoeg = 0;
 let svar = '';
 let tastelyttere = new Map();
+
+alert(korrekt);
+
+const korrektBogstav = (bogstav) => {
+  taster[bogstaver.indexOf(bogstav)].style.backgroundColor = 'var(--green-1)';
+  return 'var(--green-1)';
+}
 
 const forkertBogstav = (bogstav) => {
   taster[bogstaver.indexOf(bogstav)].style.backgroundColor = 'var(--dark-gray)';
@@ -15,7 +26,7 @@ const forkertBogstav = (bogstav) => {
 
 const forkertPlads = (i) => {
   if ([...svar].some((_, j) => i != j && svar[i] != svar[j] && svar[i] === korrekt[j])) {
-    return 'var(--sickly-yellow)';
+    return 'var(--yellow-1)';
   } else {
     return 'var(--dark-gray)';
   }  
@@ -25,7 +36,7 @@ const farvelaeg = () => {
   for (let i = 0; i < 5; i++) {
     plade[i + 5 * forsoeg].style.backgroundColor
       = plade[i + 5 * forsoeg].style.borderColor 
-      = svar[i] === korrekt[i] ?  'var(--forest-green)' : korrekt.includes(svar[i]) ? forkertPlads(i) : forkertBogstav(svar[i]);
+      = svar[i] === korrekt[i] ? korrektBogstav(svar[i]) : korrekt.includes(svar[i]) ? forkertPlads(i) : forkertBogstav(svar[i]);
   }
 }
 
@@ -55,11 +66,8 @@ const startIndtastning = () => {
     gyldig.push(tast.innerText.toLowerCase());
     tastelyttere.set(tast, (event) => {
       if (svar.length < 5) {
-        let bogstav = document.createElement('div');
-        bogstav.className = 'bogstav';
-        bogstav.innerHTML = tast.innerText;
         svar += tast.innerText.toLowerCase();
-        plade[svar.length - 1 + 5*forsoeg].appendChild(bogstav);
+        plade[svar.length - 1 + 5*forsoeg].innerHTML = tast.innerText;
       }
     });
     tast.addEventListener('click', tastelyttere.get(tast));
@@ -77,10 +85,7 @@ const lytFysiskTastatur = (event) => {
   let tast = event.key.toLowerCase();
   if (gyldig.includes(tast) && svar.length < 5) {
     svar += tast;
-    let bogstav = document.createElement('div');
-    bogstav.className = 'bogstav';
-    bogstav.innerHTML = tast;
-    plade[svar.length - 1 + 5*forsoeg].appendChild(bogstav);
+    plade[svar.length - 1 + 5*forsoeg].innerHTML = tast;
   } else if (tast === 'backspace' && svar.length > 0) {
     svar = svar.slice(0, -1);
     plade[svar.length + 5*forsoeg].innerHTML = '';
@@ -130,5 +135,4 @@ const lukBesked = (besked) => {
   window.setTimeout(() => document.body.removeChild(besked), 350);
 }
 
-alert(korrekt);
 startIndtastning();
