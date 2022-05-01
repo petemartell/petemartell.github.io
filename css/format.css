@@ -67,7 +67,7 @@ main {
   justify-content: center;
   border-radius: 6px;
   border: none;
-  background-color: var(--light-gray);
+  background-color: red;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
@@ -82,6 +82,9 @@ main {
 }
 .bred {
   grid-column-start: span 2;
+}
+.stoerre {
+  font-size: min(1.5em, 5vw);
 }
 /*
 header {
