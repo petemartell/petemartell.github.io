@@ -1,4 +1,5 @@
 const ordbog = ord.split(',');
+const boejninger = boej.split(',');
 const vaelgOrd = () => ordbog[Math.floor(Math.random() * ordbog.length)];
 const korrekt = vaelgOrd();
 const plade = document.querySelectorAll('.plade > div');
@@ -16,29 +17,29 @@ const korrektBogstav = (bogstav) => {
   return 'var(--green-1)';
 }
 
-const forkertBogstav = (bogstav) => {
-  taster[bogstaver.indexOf(bogstav)].style.backgroundColor = 'var(--dark-gray)';
-  return 'var(--dark-gray)';
-}
-
-const forkertPlads = (i) => {
+const forkertBogstav = (i) => {
+  let nyfarve;
   if ([...svar].some((_, j) => i != j && svar[i] != svar[j] && svar[i] === korrekt[j])) {
-    return 'var(--yellow-1)';
+    nyfarve = 'var(--yellow-1)'
   } else {
-    return 'var(--dark-gray)';
-  }  
+    nyfarve = 'var(--dark-gray)';
+  }
+  if (taster[bogstaver.indexOf(svar[i])].style.backgroundColor !== 'var(--green-1)') {
+    taster[bogstaver.indexOf(svar[i])].style.backgroundColor = nyfarve;
+  }
+  return nyfarve;
 }
 
 const farvelaeg = () => {
   for (let i = 0; i < 5; i++) {
     plade[i + 5 * forsoeg].style.backgroundColor
       = plade[i + 5 * forsoeg].style.borderColor 
-      = svar[i] === korrekt[i] ? korrektBogstav(svar[i]) : korrekt.includes(svar[i]) ? forkertPlads(i) : forkertBogstav(svar[i]);
+      = svar[i] === korrekt[i] ? korrektBogstav(svar[i]) : forkertBogstav(i);
   }
 }
 
 const tjekSvar = () => {
-  if (ordbog.includes(svar)) {
+  if (ordbog.includes(svar) || boejninger.includes(svar)) {
     farvelaeg();
     if (svar === korrekt) {
       sendBesked(`<h2>Tillykke, du vandt!</h2><h3>Ordet var ganske rigtigt "${korrekt}".<br><br>Du er velkommen til at spille igen med et nyt ord:</h3><button onclick="window.location.reload();" class="knap" autofocus>NYT SPIL</button>`, false);
